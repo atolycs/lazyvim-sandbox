@@ -4,7 +4,9 @@
 
 vim.opt.relativenumber = false
 
-vim.opt.auotindent = true
+vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
+
+vim.opt.clipboard = "unnamedplus"
