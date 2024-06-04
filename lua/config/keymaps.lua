@@ -7,23 +7,22 @@ local keymap = vim.keymap
 local silent_opts = { noremap = true, silent = true }
 local opts = { noremap = true, silent = false }
 
-keymap.set("n", "dd", '"_dd')
-keymap.set("n", "x", '"_x')
-keymap.set("n", "qq", ":qa<CR>")
+keymap.set("n", "dd", '"_dd', { desc = "Delete line" })
+keymap.set("n", "x", '"_x', { desc = "Delete character" })
+keymap.set("n", "qq", ":qa<CR>", { desc = "Quit All" })
 
 -- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+keymap.set("n", "dw", 'vb"_d', { desc = "Delete backwords" })
 
 -- select all
-keymap.set("n", "<C-a>", "gg<S-V>G")
+keymap.set("n", "<C-a>", "gg<S-V>G", { desc = "Select all" })
 
 -- split window
-keymap.set("n", "ss", ":split<CR>")
-keymap.set("n", "sv", ":vsplit<CR>")
+keymap.set("n", "ss", ":split<CR>", { desc = "Split window" })
+keymap.set("n", "sv", ":vsplit<CR>", { desc = "Vertical split window" })
 
-keymap.set("n", "sh", "<C-w>h")
 --  Move window
 keymap.set("n", "sh", "<C-w>h", silent_opts)
 keymap.set("n", "sk", "<C-w>k", silent_opts)
 keymap.set("n", "sj", "<C-w>j", silent_opts)
-keymap.set("n", "sh", "<C-w>h", silent_opts)
+keymap.set("n", "sl", "<C-w>l", silent_opts)
