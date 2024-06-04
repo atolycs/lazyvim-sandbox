@@ -9,3 +9,4 @@ data
 
 lazyvim.json
 lazy-lock.json
+*.bak
