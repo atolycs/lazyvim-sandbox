@@ -14,6 +14,13 @@ return {
         "<Cmd>BufferLineCyclePrev<CR>",
         desc = "Previous Tab",
       },
+      {
+        "q",
+        function(n)
+          LazyVim.ui.bufremove(n)
+        end,
+        desc = "Close Tab",
+      },
     },
   },
 }

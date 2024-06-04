@@ -33,6 +33,9 @@ return {
     config = function(_, opts)
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         wrap_results = true,
+        layout_strategy = "horizontal",
+        sorting_strategy = "ascending",
+        winblend = 0,
         mappings = {
           n = {},
         },
