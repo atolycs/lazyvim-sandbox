@@ -75,4 +75,16 @@ return {
       require("telescope").load_extension("file_browser")
     end,
   },
+
+  {
+    "williamboma/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shellcheck",
+        "shfmt",
+        "flake8",
+      },
+    },
+  },
 }
