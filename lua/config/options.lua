@@ -9,4 +9,4 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
