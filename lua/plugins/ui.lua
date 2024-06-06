@@ -3,6 +3,15 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
+    opts = {
+      mode = function()
+        if vim.opt.diff:get() then
+          return "tabs"
+        else
+          return "buffers"
+        end
+      end,
+    },
     keys = {
       {
         "<tab>",
