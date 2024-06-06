@@ -3,15 +3,6 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    opts = {
-      mode = function()
-        if vim.opt.diff:get() then
-          return "tabs"
-        else
-          return "buffers"
-        end
-      end,
-    },
     keys = {
       {
         "<tab>",
@@ -31,5 +22,34 @@ return {
         desc = "Close Tab",
       },
     },
+    opts = function()
+      -- stylua: ignore
+      local select_mode = ""
+      if vim.opt.diff:get() then
+        select_mode = "tabs"
+      else
+        select_mode = "buffers"
+      end
+
+      return {
+        options = {
+          mode = select_mode,
+          close_command = function(n)
+            LazyVim.ui.bufremove(n)
+          end,
+          right_mouse_command = function(n)
+            LazyVim.ui.bufremove(n)
+          end,
+          diagnostics = "nvim_lsp",
+          always_show_bufferline = false,
+          diagnostics_indicator = function(_, _, diag)
+            local icons = require("lazyvim.config").icons.diagnostics
+            local ret = (diag.error and icons.Error .. diag.error .. " " or "")
+              .. (diag.warning and icons.Warn .. diag.warning or "")
+            return vim.trim(ret)
+          end,
+        },
+      }
+    end,
   },
 }
