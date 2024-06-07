@@ -16,6 +16,12 @@ local function default_opts(opts)
   return opts
 end
 
+-- Delete Window keymaps
+keymap.del("n", "<C-j>")
+keymap.del("n", "<C-k>")
+keymap.del("n", "<C-h>")
+keymap.del("n", "<C-l>")
+
 -- local silent_opts = { noremap = true, silent = true, desc = "" }
 -- local opts = { noremap = true, silent = false, desc = "" }
 
@@ -25,6 +31,14 @@ keymap.set("n", "qq", ":qa<CR>", default_opts({ desc = "Quit all" }))
 
 -- Delete a word backwardoptss
 keymap.set("n", "dw", 'vb"_d', default_opts({ desc = "Delete back word" }))
+
+-- Word movement
+keymap.set("n", "<C-l>", "e", default_opts({ desc = "Move to the end of the word" }))
+keymap.set("n", "<C-h>", "b", default_opts({ desc = "Move to the beginning of the word" }))
+
+-- Disable continuation of comments
+keymap.set("n", "o", "o<Esc>^Da", default_opts({ desc = "Insert newline below" }))
+keymap.set("n", "O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }))
 
 -- select all
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
@@ -38,9 +52,3 @@ keymap.set("n", "sh", "<C-w>h", silent_opts({ desc = "Move to the left window" }
 keymap.set("n", "sk", "<C-w>k", silent_opts({ desc = "Move to the top window" }))
 keymap.set("n", "sj", "<C-w>j", silent_opts({ desc = "Move to the bottom window" }))
 keymap.set("n", "sl", "<C-w>l", silent_opts({ desc = "Move to the right window" }))
-
--- Delete Window keymaps
-keymap.del("n", "<C-j>")
-keymap.del("n", "<C-k>")
-keymap.del("n", "<C-h>")
-keymap.del("n", "<C-l>")
