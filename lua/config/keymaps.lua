@@ -27,7 +27,7 @@ keymap.del("n", "<C-l>")
 
 keymap.set("n", "dd", '"_dd', default_opts({ desc = "Delete line" }))
 keymap.set("n", "x", '"_x', default_opts({ desc = "Delete character" }))
-keymap.set("n", "qq", ":qa<CR>", default_opts({ desc = "Quit all" }))
+keymap.set("n", "qq", "<cmd>qa<CR>", default_opts({ desc = "Quit all" }))
 
 -- Delete a word backwardoptss
 keymap.set("n", "dw", 'vb"_d', default_opts({ desc = "Delete back word" }))
@@ -44,8 +44,8 @@ keymap.set("n", "O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
 
 -- split window
-keymap.set("n", "ss", ":split<CR>", default_opts({ desc = "Split window" }))
-keymap.set("n", "sv", ":vsplit<CR>", default_opts({ desc = "Vertical split window" }))
+keymap.set("n", "ss", "<cmd>split<CR>", silent_opts({ desc = "Split window" }))
+keymap.set("n", "sv", "<cmd>vsplit<CR>", silent_opts({ desc = "Vertical split window" }))
 
 --  Move window
 keymap.set("n", "sh", "<C-w>h", silent_opts({ desc = "Move to the left window" }))
