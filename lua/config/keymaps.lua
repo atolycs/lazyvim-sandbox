@@ -37,8 +37,9 @@ keymap.set("n", "<C-l>", "e", default_opts({ desc = "Move to the end of the word
 keymap.set("n", "<C-h>", "b", default_opts({ desc = "Move to the beginning of the word" }))
 
 -- Disable continuation of comments
-keymap.set("n", "o", "o<Esc>^Da", default_opts({ desc = "Insert newline below" }))
-keymap.set("n", "O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }))
+keymap.set("n", "<Leader>o", "o<Esc>^Da", default_opts({ desc = "Insert newline below" }))
+keymap.set("n", "<CR><CR>", "<Leader>o", default_opts({ desc = "Insert newline below" }))
+keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }))
 
 -- select all
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
