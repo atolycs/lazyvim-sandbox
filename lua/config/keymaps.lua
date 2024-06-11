@@ -38,7 +38,6 @@ keymap.set("n", "<C-h>", "b", default_opts({ desc = "Move to the beginning of th
 
 -- Disable continuation of comments
 keymap.set("n", "<Leader>o", "o<Esc>^Da", default_opts({ desc = "Insert newline below" }))
-keymap.set("n", "<CR><CR>", "<Leader>o", default_opts({ desc = "Insert newline below" }))
 keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }))
 
 -- select all
