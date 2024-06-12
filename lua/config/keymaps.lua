@@ -27,7 +27,11 @@ keymap.del("n", "<C-l>")
 
 keymap.set("n", "dd", '"_dd', default_opts({ desc = "Delete line" }))
 keymap.set("n", "x", '"_x', default_opts({ desc = "Delete character" }))
-keymap.set("n", "qq", "<cmd>qa<CR>", default_opts({ desc = "Quit all" }))
+keymap.set("n", "qq", function()
+  if not vim.g.vscode then
+    vim.cmd("qa")
+  end
+end, default_opts({ desc = "Quit all" }))
 
 keymap.set("n", "q", function(n)
   if vim.bo.filetype == "help" then
