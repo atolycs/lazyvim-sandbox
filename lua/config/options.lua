@@ -16,6 +16,6 @@ vim.opt.inccommand = "split"
 if vim.g.vscode then
   local vscode = require("vscode")
   vim.notify = vscode.notify
-  vim.g.clipboard = vscode.clipboard
+  vim.g.clipboard = vim.g.vscode_clipboard
   vim.notify("VScode setting loaded", "info", { title = "LazyVim" })
 end
