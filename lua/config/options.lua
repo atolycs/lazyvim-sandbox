@@ -12,3 +12,7 @@ vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 
 vim.opt.inccommand = "split"
+
+if vim.g.vscode then
+  vim.notify = vscode.notify
+end
