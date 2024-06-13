@@ -4,6 +4,7 @@
 
 vim.opt.relativenumber = false
 
+vim.opt.scrolloff = 10
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
@@ -12,6 +13,9 @@ vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 
 vim.opt.inccommand = "split"
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 if vim.g.vscode then
   local vscode = require("vscode")

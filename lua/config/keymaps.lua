@@ -33,7 +33,7 @@ keymap.set("n", "qq", function()
   end
 end, default_opts({ desc = "Quit all" }))
 
-keymap.set("n", "q", function(n)
+keymap.set("n", "q", function()
   if vim.bo.filetype == "help" then
     vim.cmd("helpclose")
   elseif vim.opt.diff:get() then
@@ -42,7 +42,7 @@ keymap.set("n", "q", function(n)
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
   else
-    LazyVim.ui.bufremove(n)
+    vim.cmd("q")
   end
 end, default_opts({ desc = "Close Tab" }))
 
