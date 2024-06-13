@@ -59,7 +59,7 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline 
 -- select all
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
 
--- split window
+-- split windofn0
 keymap.set("n", "ss", "<cmd>split<CR>", silent_opts({ desc = "Split window" }))
 keymap.set("n", "sv", "<cmd>vsplit<CR>", silent_opts({ desc = "Vertical split window" }))
 
@@ -68,3 +68,6 @@ keymap.set("n", "sh", "<C-w>h", silent_opts({ desc = "Move to the left window" }
 keymap.set("n", "sj", "<C-w>j", silent_opts({ desc = "Move to the bottom window" }))
 keymap.set("n", "sk", "<C-w>k", silent_opts({ desc = "Move to the top window" }))
 keymap.set("n", "sl", "<C-w>l", silent_opts({ desc = "Move to the right window" }))
+
+-- Copilot Switch
+keymap.set("n", "<Leader>cp", "<cmd>Copilot toggle<CR>", silent_opts({ desc = "Toggle Copilot" }))
