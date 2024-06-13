@@ -59,7 +59,7 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline 
 -- select all
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
 
--- split windofn0
+-- split window
 keymap.set("n", "ss", "<cmd>split<CR>", silent_opts({ desc = "Split window" }))
 keymap.set("n", "sv", "<cmd>vsplit<CR>", silent_opts({ desc = "Vertical split window" }))
 
