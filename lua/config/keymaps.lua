@@ -4,6 +4,8 @@
 
 local keymap = vim.keymap
 
+local g = vim.g
+
 local function silent_opts(opts)
   opts.silent = true
   opts.noremap = true
@@ -22,6 +24,8 @@ keymap.del("n", "<C-k>")
 keymap.del("n", "<C-h>")
 keymap.del("n", "<C-l>")
 
+keymap.del("n", "<C-s>")
+
 -- local silent_opts = { noremap = true, silent = true, desc = "" }
 -- local opts = { noremap = true, silent = false, desc = "" }
 
@@ -33,7 +37,7 @@ keymap.set("n", "qq", function()
   end
 end, default_opts({ desc = "Quit all" }))
 
-keymap.set("n", "q", function(n)
+keymap.set("n", "q", function()
   if vim.bo.filetype == "help" then
     vim.cmd("helpclose")
   elseif vim.opt.diff:get() then
@@ -41,8 +45,6 @@ keymap.set("n", "q", function(n)
   elseif vim.g.vscode then
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
-  else
-    LazyVim.ui.bufremove(n)
   end
 end, default_opts({ desc = "Close Tab" }))
 
@@ -59,9 +61,27 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline 
 -- select all
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
 
--- split windofn0
-keymap.set("n", "ss", "<cmd>split<CR>", silent_opts({ desc = "Split window" }))
-keymap.set("n", "sv", "<cmd>vsplit<CR>", silent_opts({ desc = "Vertical split window" }))
+-- split window
+-- keymap.set("n", "ss", "<cmd>split<CR>", silent_opts({ desc = "Split window" }))
+-- keymap.set("n", "sv", "<cmd>vsplit<CR>", silent_opts({ desc = "Vertical split window" }))
+
+keymap.set("n", "ss", function()
+  if g.vscode then
+    local vscode = require("vscode")
+    vscode.call("workbench.action.splitEditorRight")
+  else
+    vim.cmd("split")
+  end
+end)
+
+keymap.set("n", "sv", function()
+  if g.vscode then
+    local vscode = require("vscode")
+    vscode.call("workbench.action.splitEditorDown")
+  else
+    vim.cmd("vsplit")
+  end
+end)
 
 --  Move window
 keymap.set("n", "sh", "<C-w>h", silent_opts({ desc = "Move to the left window" }))
