@@ -91,3 +91,13 @@ keymap.set("n", "sl", "<C-w>l", silent_opts({ desc = "Move to the right window" 
 
 -- Copilot Switch
 keymap.set("n", "<Leader>cp", "<cmd>Copilot toggle<CR>", silent_opts({ desc = "Toggle Copilot" }))
+
+-- Zen Mode
+keymap.set("n", "<Leader>z", function()
+  if g.vscode then
+    local vscode = require("vscode")
+    vscode.call("workbench.action.toggleZenMode")
+  else
+    vim.cmd("ZenMode")
+  end
+end, silent_opts({ desc = "Toggle Zen Mode" }))

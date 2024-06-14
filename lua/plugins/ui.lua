@@ -47,20 +47,5 @@ return {
   },
   {
     "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-    keys = {
-      {
-        "<leader>z",
-        function()
-          if vim.g.vscode then
-            local vscode = require("vscode")
-            vscode.call("workbench.action.toggleZenMode")
-          else
-            vim.cmd("ZenMode")
-          end
-        end,
-        desc = "Zen Mode",
-      },
-    },
   },
 }
