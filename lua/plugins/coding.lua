@@ -25,7 +25,7 @@ return {
             if #cmp.get_entries() == 1 then
               cmp.confirm({ select = true })
             else
-              cmp.select_next_item()
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             end
             -- cmp.confirm({ select = true })
             -- cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
