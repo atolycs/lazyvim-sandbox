@@ -45,4 +45,11 @@ return {
       }
     end,
   },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    keys = {
+      { "<leader>z", "<Cmd>ZenMode<CR>", desc = "Zen Mode" },
+    },
+  },
 }
