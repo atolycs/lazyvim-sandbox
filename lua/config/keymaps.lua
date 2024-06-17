@@ -58,6 +58,10 @@ keymap.set({ "n", "v" }, "<C-h>", "b", default_opts({ desc = "Move to the beginn
 keymap.set("n", "<Leader>o", "o<Esc>^Da", default_opts({ desc = "Insert newline below" }))
 keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }))
 
+-- Scroll up and down
+keymap.set("n", "<C-j>", "<C-f>", default_opts({ desc = "Scroll Forward" }))
+keymap.set("n", "<C-k>", "<C-b>", default_opts({ desc = "Scroll Backward" }))
+
 -- select all
 keymap.set("n", "<C-a>", "gg<S-V>G", default_opts({ desc = "Select all" }))
 
