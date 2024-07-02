@@ -10,10 +10,8 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 
-vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
-
 vim.opt.inccommand = "split"
-
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
