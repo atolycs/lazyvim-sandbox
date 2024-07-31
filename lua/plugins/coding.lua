@@ -9,6 +9,13 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    enabled = function()
+      if vim.fn.has("nvim-0.10") == 0 then
+        return false
+      else
+        return true
+      end
+    end,
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
