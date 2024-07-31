@@ -8,7 +8,11 @@ return {
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
+        build = function()
+          if not vim.fn.has("win") then
+            return "make"
+          end
+        end,
       },
       "nvim-telescope/telescope-file-browser.nvim",
     },
@@ -76,8 +80,10 @@ return {
         },
       }
       telescope.setup(opts)
+      if not vim.fn.has("win") then
+        require("telescope").load_extension("fzf")
+      end
       require("telescope").load_extension("file_browser")
-      require("telescope").load_extension("fzf")
     end,
   },
 
