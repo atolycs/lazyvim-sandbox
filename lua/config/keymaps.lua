@@ -55,8 +55,8 @@ keymap.set({ "n", "v" }, "<C-l>", "e", default_opts({ desc = "Move to the end of
 keymap.set({ "n", "v" }, "<C-h>", "b", default_opts({ desc = "Move to the beginning of the word" }))
 
 -- Disable continuation of comments
-keymap.set("n", "<Leader>o", "o<Esc>^Da", default_opts({ desc = "Insert newline below" }))
-keymap.set("n", "<Leader>O", "O<Esc>^Da", default_opts({ desc = "Insert newline above" }))
+keymap.set("n", "<Leader>o", "o<Esc>^Da", silent_opts({ desc = "Insert newline below" }))
+keymap.set("n", "<Leader>O", "O<Esc>^Da", silent_opts({ desc = "Insert newline above" }))
 
 -- Scroll up and down
 keymap.set("n", "<C-j>", "<C-f>", default_opts({ desc = "Scroll Forward" }))
