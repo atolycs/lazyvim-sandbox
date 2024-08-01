@@ -9,7 +9,7 @@ return {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = function()
-          if not vim.fn.has("win") then
+          if not require("atolycs.util").isWindows() then
             return "make"
           end
         end,
