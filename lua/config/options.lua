@@ -15,6 +15,11 @@ vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 if vim.g.vscode then
   local vscode = require("vscode")
   vim.notify = vscode.notify
