@@ -11,6 +11,4 @@ function M.isMac()
 end
 
 -- return M
-return {
-  M,
-}
+return M
