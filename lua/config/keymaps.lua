@@ -45,8 +45,21 @@ keymap.set("n", "q", function()
   elseif vim.g.vscode then
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
+  else
+    vim.cmd("b#|bd#|quit")
   end
-end, default_opts({ desc = "Close Tab" }))
+end)
+
+-- keymap.set("n", "q", function()
+--   if vim.bo.filetype == "help" then
+--     vim.cmd("helpclose")
+--   elseif vim.opt.diff:get() then
+--     vim.cmd("quitall")
+--   elseif vim.g.vscode then
+--     local vscode = require("vscode")
+--     vscode.call("workbench.action.closeActiveEditor")
+--   end
+-- end, default_opts({ desc = "Close Tab" }))
 
 keymap.set("n", "dw", 'vb"_d', default_opts({ desc = "Delete back word" }))
 
