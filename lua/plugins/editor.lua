@@ -47,6 +47,9 @@ return {
         mappings = {
           n = {},
         },
+        file_ignore_patterns = {
+          ".git",
+        },
       })
 
       local telescope = require("telescope")
@@ -56,6 +59,10 @@ return {
       opts.extensions = {
         file_browser = {
           hijack_netrw = true,
+          hidden = {
+            file_browser = true,
+            folder_browser = true,
+          },
           mappings = {
             ["n"] = {
               ["N"] = fb_actions.create,
