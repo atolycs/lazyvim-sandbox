@@ -118,3 +118,11 @@ keymap.set("n", "<Leader>z", function()
     vim.cmd("ZenMode")
   end
 end, silent_opts({ desc = "Toggle Zen Mode" }))
+
+keymap.set({ "n", "v" }, "+", "zc", silent_opts({ desc = "Close one fold under the cursor" }))
+keymap.set({ "n", "v" }, "++", "zM", silent_opts({ desc = "Close all folds" }))
+keymap.set({ "n", "v" }, "-", "zo", silent_opts({ desc = "Open one fold under the cursor" }))
+keymap.set({ "n", "v" }, "--", "zR", silent_opts({ desc = "Open all folds" }))
+
+-- Oil Map
+keymap.set("n", "ooo", "<cmd>Oil<CR>", silent_opts({ desc = "Open parent Directory" }))
