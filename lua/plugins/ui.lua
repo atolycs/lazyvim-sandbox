@@ -2,6 +2,7 @@ return {
   -- buffer line
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       {
@@ -47,5 +48,18 @@ return {
   },
   {
     "folke/zen-mode.nvim",
+  },
+  {
+    "romgrk/barbar.nvim",
+    dependencies = {
+      "lewins6991/gitsigns.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {
+      auto_hide = true,
+    },
   },
 }

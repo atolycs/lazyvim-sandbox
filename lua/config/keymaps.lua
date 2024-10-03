@@ -45,8 +45,11 @@ keymap.set("n", "q", function()
   elseif vim.g.vscode then
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
+  elseif require("atolycs.util").isLastBuffer() then
+    vim.cmd("qa")
   else
-    vim.cmd("b#|bd#|quit")
+    vim.cmd("BufferWipeout", silent_opts({ desc = "Close Buffer" }))
+    -- vim.cmd("b#|bd#|quit")
   end
 end)
 
@@ -126,3 +129,7 @@ keymap.set({ "n", "v" }, "--", "zR", silent_opts({ desc = "Open all folds" }))
 
 -- Oil Map
 keymap.set("n", "ooo", "<cmd>Oil<CR>", silent_opts({ desc = "Open parent Directory" }))
+
+-- barbar
+keymap.set("n", "<tab>", "<cmd>BufferNext<CR>", silent_opts({ desc = "Next Buffer" }))
+keymap.set("n", "<S-tab>", "<cmd>BufferPrevious<CR>", silent_opts({ desc = "Previous Buffer" }))
