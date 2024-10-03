@@ -52,7 +52,7 @@ return {
   {
     "romgrk/barbar.nvim",
     dependencies = {
-      "lewins6991/gitsigns.nvim",
+      "lewis6991/gitsigns.nvim",
       "nvim-tree/nvim-web-devicons",
     },
     init = function()
