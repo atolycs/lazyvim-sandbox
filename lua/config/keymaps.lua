@@ -29,6 +29,8 @@ keymap.del("n", "<C-s>")
 -- local silent_opts = { noremap = true, silent = true, desc = "" }
 -- local opts = { noremap = true, silent = false, desc = "" }
 
+keymap.set("n", "<esc><esc>", "<cmd>nohl<cr>", silent_opts({ desc = "Clear Highlight" }))
+
 keymap.set("n", "dd", '"_dd', default_opts({ desc = "Delete line" }))
 keymap.set("n", "x", '"_x', default_opts({ desc = "Delete character" }))
 keymap.set("n", "qq", function()
