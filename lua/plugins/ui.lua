@@ -78,6 +78,13 @@ return {
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
       local icons = require("atolycs.icons")
+      local function padding(opts)
+        return {
+          type = "padding",
+          val = opts.val,
+        }
+      end
+
       local header = {
         type = "text",
         val = custom_text or dashboard.section.header.val,
@@ -98,7 +105,6 @@ return {
                   position = "center",
                 },
               },
-              { type = "padding", val = 1 },
               dashboard.button("n", icons.dashboard.new_file .. " New File", [[<cmd> ene <BAR> startinsert <cr>]]),
               dashboard.button("o", icons.dashboard.open_file .. " Open File", "<cmd>Telescope file_browser<cr>"),
             },
@@ -136,7 +142,6 @@ return {
                   position = "center",
                 },
               },
-              { type = "padding", val = 1 },
               dashboard.button("q", icons.dashboard.quit .. " Quit", "<cmd>qa<cr>"),
             },
           },
@@ -162,14 +167,17 @@ return {
       dashboard.section.footer.opts.hl = "AlphaFooter"
 
       dashboard.opts.layout = {
-        {
-          type = "padding",
-          val = 2,
-        },
         header,
+
+        padding({ val = 2 }),
         sections.buttons.quick_actions,
         sections.buttons.config,
+
+        padding({ val = 1 }),
         sections.buttons.system,
+
+        padding({ val = 2 }),
+        dashboard.section.footer,
       }
       return dashboard
     end,
