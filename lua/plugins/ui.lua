@@ -67,4 +67,142 @@ return {
       },
     },
   },
+  {
+    "nvimdev/dashboard-nvim",
+    enabled = false,
+  },
+  {
+    "goolord/alpha-nvim",
+    event = "VimEnter",
+    enabled = true,
+    opts = function()
+      local dashboard = require("alpha.themes.dashboard")
+      local icons = require("atolycs.icons")
+      local header = {
+        type = "text",
+        val = custom_text or dashboard.section.header.val,
+        opts = {
+          position = "center",
+        },
+      }
+
+      local sections = {
+        buttons = {
+          quick_actions = {
+            type = "group",
+            val = {
+              {
+                type = "text",
+                val = "File",
+                opts = {
+                  position = "center",
+                },
+              },
+              { type = "padding", val = 1 },
+              dashboard.button("n", icons.dashboard.new_file .. " New File", [[<cmd> ene <BAR> startinsert <cr>]]),
+              dashboard.button("o", icons.dashboard.open_file .. " Open File", "<cmd>Telescope file_browser<cr>"),
+            },
+            opts = {
+              position = "left",
+            },
+          },
+          config = {
+            type = "group",
+            val = {
+              {
+                type = "text",
+                val = "Config",
+                opts = {
+                  position = "center",
+                },
+              },
+              dashboard.button(
+                "c",
+                icons.dashboard.wrench .. "  Neovim",
+                [[<cmd> lua LazyVim.pick.config_files()() <cr>]]
+              ),
+              dashboard.button("l", icons.dashboard.bolta .. "  Lazy", [[<cmd> Lazy <cr>]]),
+            },
+          },
+          system = {
+            type = "group",
+            val = {
+              {
+                type = "text",
+                val = "System",
+                opts = {
+                  position = "center",
+                },
+              },
+              { type = "padding", val = 1 },
+              dashboard.button("q", icons.dashboard.quit .. " Quit", "<cmd>qa<cr>"),
+            },
+          },
+        },
+      }
+
+      -- stylua :ignore
+      -- dashboard.section.buttons.val = {
+      --   dashboard.button("n", icons.dashboard.new_file .. " New File", [[<cmd> ene <BAR> startinsert <cr>]]),
+      --   dashboard.button("f", icons.dashboard.search .. " Find file", [[<cmd> lua LazyVim.pick()()<cr>]]),
+      --   dashboard.button("c", icons.dashboard.wrench .. " Config", [[<cmd> lua LazyVim.pick.config_files()() <cr>]]),
+      --   dashboard.button("l", icons.dashboard.bolta .. " Lazy", [[<cmd> Lazy <cr>]]),
+      --   dashboard.button("q", icons.dashboard.quit .. " Quit", "<cmd> qa <cr>"),
+      -- }
+      --
+      for _, button in ipairs(dashboard.section.buttons.val) do
+        button.opts.hl = "AlphaButtons"
+        button.opts.hl_shortcut = "AlphaShortcut"
+      end
+
+      dashboard.section.header.opts.hl = "AlphaHeader"
+      dashboard.section.buttons.opts.hl = "AlphaButtons"
+      dashboard.section.footer.opts.hl = "AlphaFooter"
+
+      dashboard.opts.layout = {
+        {
+          type = "padding",
+          val = 2,
+        },
+        header,
+        sections.buttons.quick_actions,
+        sections.buttons.config,
+        sections.buttons.system,
+      }
+      return dashboard
+    end,
+    config = function(_, dashboard)
+      if vim.o.filetype == "lazy" then
+        vim.cmd.close()
+        vim.api.nvim_create_autocmd("User", {
+          once = true,
+          pattern = "AlphaReady",
+          callback = function()
+            require("lazy").show()
+          end,
+        })
+      end
+
+      require("alpha").setup(dashboard.opts)
+
+      vim.api.nvim_create_autocmd("User", {
+        once = true,
+        pattern = "LazyVimStarted",
+        callback = function()
+          local stats = require("lazy").stats()
+          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+
+          dashboard.section.footer.val = "Neovim loaded "
+            .. stats.loaded
+            .. "/"
+            .. stats.count
+            .. " plugins in "
+            .. ms
+            .. " ms"
+            .. "\n"
+          pcall(vim.cmd.AlphaRedraw)
+        end,
+      })
+    end,
+  },
 }
