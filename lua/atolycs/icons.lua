@@ -12,6 +12,11 @@ M.dashboard = {
   open_file = "", -- nf-custom-folder_open
 }
 
+M.lazy = {
+  sync = "󰚰", -- nf-md-update
+  update = "", -- nf-fa-angles_up
+}
+
 M.program = {
   nvim = "", -- nf-linux-neovim
 }

@@ -121,7 +121,9 @@ return {
                 icons.dashboard.wrench .. "  Neovim",
                 [[<cmd> lua LazyVim.pick.config_files()() <cr>]]
               ),
-              dashboard.button("l", icons.dashboard.bolta .. "  Lazy", [[<cmd> Lazy <cr>]]),
+              dashboard.button("l", " " .. icons.dashboard.bolta .. " Lazy", [[<cmd> Lazy <cr>]]),
+              dashboard.button("SPC l s", "  " .. icons.lazy.sync .. " Sync Plugins...", "<cmd>Lazy sync<cr>"),
+              dashboard.button("SPC l u", "  " .. icons.lazy.update .. " Update Plugins...", "<cmd>Lazy update<cr>"),
             },
           },
           system = {
