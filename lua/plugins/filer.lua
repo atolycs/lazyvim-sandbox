@@ -15,6 +15,12 @@ return {
       max_height = 0,
       border = "rounded",
       preview_split = "left",
+      win_options = {
+        winblend = 0,
+      },
+      override = function(conf)
+        return conf
+      end,
     },
   },
   dependencies = {

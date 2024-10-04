@@ -60,6 +60,11 @@ return {
     end,
     opts = {
       auto_hide = true,
+      icons = {
+        filetype = {
+          enabled = false,
+        },
+      },
     },
   },
 }
