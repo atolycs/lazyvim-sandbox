@@ -160,6 +160,13 @@ return {
         },
       }
 
+      local nvim_version = {
+        type = "text",
+        val = "Neovim v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch,
+        opts = {
+          position = "center",
+        },
+      }
       -- stylua :ignore
       -- dashboard.section.buttons.val = {
       --   dashboard.button("n", icons.dashboard.new_file .. " New File", [[<cmd> ene <BAR> startinsert <cr>]]),
@@ -181,6 +188,7 @@ return {
       dashboard.opts.layout = {
         header,
 
+        nvim_version,
         padding({ val = 2 }),
         sections.buttons.quick_actions,
         sections.buttons.config,
