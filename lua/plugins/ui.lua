@@ -134,7 +134,7 @@ return {
             val = {
               {
                 type = "text",
-                val = "lazy",
+                val = "lazy v" .. LazyVim.config.version,
                 opts = {
                   position = "center",
                 },
@@ -162,7 +162,13 @@ return {
 
       local nvim_version = {
         type = "text",
-        val = "Neovim v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch,
+        val = icons.program.nvim
+          .. " Neovim v"
+          .. vim.version().major
+          .. "."
+          .. vim.version().minor
+          .. "."
+          .. vim.version().patch,
         opts = {
           position = "center",
         },
