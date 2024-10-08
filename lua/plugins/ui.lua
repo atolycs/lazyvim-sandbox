@@ -173,15 +173,7 @@ return {
           position = "center",
         },
       }
-      -- stylua :ignore
-      -- dashboard.section.buttons.val = {
-      --   dashboard.button("n", icons.dashboard.new_file .. " New File", [[<cmd> ene <BAR> startinsert <cr>]]),
-      --   dashboard.button("f", icons.dashboard.search .. " Find file", [[<cmd> lua LazyVim.pick()()<cr>]]),
-      --   dashboard.button("c", icons.dashboard.wrench .. " Config", [[<cmd> lua LazyVim.pick.config_files()() <cr>]]),
-      --   dashboard.button("l", icons.dashboard.bolta .. " Lazy", [[<cmd> Lazy <cr>]]),
-      --   dashboard.button("q", icons.dashboard.quit .. " Quit", "<cmd> qa <cr>"),
-      -- }
-      --
+
       for _, button in ipairs(dashboard.section.buttons.val) do
         button.opts.hl = "AlphaButtons"
         button.opts.hl_shortcut = "AlphaShortcut"
