@@ -110,6 +110,7 @@ keymap.set("n", "sh", "<C-w>h", silent_opts({ desc = "Move to the left window" }
 keymap.set("n", "sj", "<C-w>j", silent_opts({ desc = "Move to the bottom window" }))
 keymap.set("n", "sk", "<C-w>k", silent_opts({ desc = "Move to the top window" }))
 keymap.set("n", "sl", "<C-w>l", silent_opts({ desc = "Move to the right window" }))
+keymap.set("n", "sq", "<cmd>bwipeout<cr>", silent_opts({ desc = "Close window" }))
 
 -- Copilot Switch
 keymap.set("n", "<Leader>cp", "<cmd>Copilot toggle<CR>", silent_opts({ desc = "Toggle Copilot" }))
