@@ -15,6 +15,7 @@ M.dashboard = {
 M.lazy = {
   sync = "󰚰", -- nf-md-update
   update = "", -- nf-fa-angles_up
+  mason = "󰢛", -- nf-md-anvil
 }
 
 M.program = {
