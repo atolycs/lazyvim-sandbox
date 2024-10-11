@@ -92,6 +92,7 @@ return {
         require("telescope").load_extension("fzf")
       end
       require("telescope").load_extension("file_browser")
+      require("telescope").load_extension("aerial")
     end,
   },
 
@@ -104,6 +105,15 @@ return {
         "shfmt",
         "flake8",
       },
+    },
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
   },
 }
