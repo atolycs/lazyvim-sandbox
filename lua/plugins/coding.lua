@@ -4,8 +4,13 @@ return {
     opts = {
       suggestion = {
         enabled = false,
+        auto_trigger = false,
       },
     },
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    enabled = false,
   },
   {
     "hrsh7th/nvim-cmp",
