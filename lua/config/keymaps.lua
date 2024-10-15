@@ -53,7 +53,7 @@ keymap.set("n", "q", function()
     vim.cmd("BufferWipeout", silent_opts({ desc = "Close Buffer" }))
     -- vim.cmd("b#|bd#|quit")
   end
-end)
+end, silent_opts({ desc = "Quit All" }))
 
 -- keymap.set("n", "q", function()
 --   if vim.bo.filetype == "help" then
@@ -94,7 +94,7 @@ keymap.set("n", "ss", function()
   else
     vim.cmd("split")
   end
-end)
+end, silent_opts({ desc = "Split Window" }))
 
 keymap.set("n", "sv", function()
   if g.vscode then
@@ -103,7 +103,7 @@ keymap.set("n", "sv", function()
   else
     vim.cmd("vsplit")
   end
-end)
+end, silent_opts({ desc = "Split Vertical Window" }))
 
 --  Move window
 keymap.set("n", "sh", "<C-w>h", silent_opts({ desc = "Move to the left window" }))
