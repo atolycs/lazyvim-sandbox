@@ -16,6 +16,7 @@ M.lazy = {
   sync = "󰚰", -- nf-md-update
   update = "", -- nf-fa-angles_up
   mason = "󰢛", -- nf-md-anvil
+  extras = "", -- nf-cod-symbol_method
 }
 
 M.program = {
