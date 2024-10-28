@@ -140,7 +140,7 @@ return {
                 },
               },
               dashboard.button("l", icons.dashboard.bolta .. " Lazy Manager", [[<cmd> Lazy <cr>]]),
-              dashboard.button("SPC l s", "  " .. icons.lazy.sync .. " Check update Plugins...", "<cmd>Lazy check<cr>"),
+              dashboard.button("SPC l c", "  " .. icons.lazy.sync .. " Check update Plugins...", "<cmd>Lazy check<cr>"),
               dashboard.button("SPC l u", "  " .. icons.lazy.update .. " Update Plugins...", "<cmd>Lazy update<cr>"),
               dashboard.button("SPC l e", "  " .. icons.lazy.extras .. " Extras", "<cmd>LazyExtras<cr>"),
               dashboard.button("SPC M", "  " .. icons.lazy.mason .. " Mason Manager", "<cmd>Mason<cr>"),
