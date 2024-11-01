@@ -1,5 +1,6 @@
 return {
   "stevearc/oil.nvim",
+  enabled = false,
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {
@@ -27,6 +28,18 @@ return {
     {
       "echasnovski/mini.icons",
       opts = {},
+    },
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        width = 20,
+        mappings = {
+          ["s"] = "none",
+          ["S"] = "none",
+        },
+      },
     },
   },
 }
