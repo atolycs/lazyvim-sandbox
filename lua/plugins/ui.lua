@@ -78,6 +78,8 @@ return {
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
       local icons = require("atolycs.icons")
+      local autil = require("atolycs.util")
+
       local function padding(opts)
         return {
           type = "padding",
@@ -107,6 +109,7 @@ return {
               },
               dashboard.button("n", icons.dashboard.new_file .. " New File", [[<cmd> ene <BAR> startinsert <cr>]]),
               dashboard.button("o", icons.dashboard.open_file .. " Open File", "<cmd>Telescope file_browser<cr>"),
+              -- dashboard.button("SPC o", "" .. " Open This Folder...", vim.cmd("lcd" .. autil.get_gir_root())),
             },
             opts = {
               position = "left",

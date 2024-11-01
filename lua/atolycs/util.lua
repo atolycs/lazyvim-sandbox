@@ -34,5 +34,11 @@ function M.GetBuffer()
   return buflist
 end
 
+--@return string
+function M.get_gir_root()
+  local git_path = vim.fn.finddir(".git", ".;")
+  return vim.fn.fnamemodify(git_path, ":h")
+end
+
 -- return M
 return M
