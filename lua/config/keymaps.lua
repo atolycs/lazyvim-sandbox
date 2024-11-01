@@ -48,7 +48,8 @@ keymap.set("n", "q", function()
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
   elseif require("atolycs.util").isLastBuffer() then
-    vim.cmd("qa")
+    -- vim.cmd("qa")
+    LazyVim.ui.bufremove()
   else
     vim.cmd("BufferWipeout", silent_opts({ desc = "Close Buffer" }))
     -- vim.cmd("b#|bd#|quit")
