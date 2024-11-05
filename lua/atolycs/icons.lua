@@ -10,6 +10,7 @@ M.dashboard = {
   bolta = "󱐋", -- nf-md-lightning_bolt
   quit = "󰈆", -- nf-md-exit_to_app
   open_file = "", -- nf-custom-folder_open
+  open_project = "", -- nf-seti-project
 }
 
 M.lazy = {
