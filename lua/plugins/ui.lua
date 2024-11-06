@@ -249,4 +249,11 @@ return {
     ---@type render.md.UserConfig
     opts = {},
   },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      stages = "slide",
+      timeout = 5000,
+    },
+  },
 }
