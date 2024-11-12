@@ -47,14 +47,27 @@ keymap.set("n", "q", function()
   elseif vim.g.vscode then
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
-  elseif require("atolycs.util").isLastBuffer() then
-    -- vim.cmd("qa")
-    LazyVim.ui.bufremove()
   else
-    vim.cmd("BufferWipeout", silent_opts({ desc = "Close Buffer" }))
-    -- vim.cmd("b#|bd#|quit")
+    require("atolycs.quit-util").is_last_quit()
   end
-end, silent_opts({ desc = "Quit All" }))
+end, default_opts({ desc = "Quit" }))
+
+-- keymap.set("n", "q", function()
+--   if vim.bo.filetype == "help" then
+--     vim.cmd("helpclose")
+--   elseif vim.opt.diff:get() then
+--     vim.cmd("quitall")
+--   elseif vim.g.vscode then
+--     local vscode = require("vscode")
+--     vscode.call("workbench.action.closeActiveEditor")
+--   elseif require("atolycs.util").isLastBuffer() then
+--     -- vim.cmd("qa")
+--     LazyVim.ui.bufremove()
+--   else
+--     vim.cmd("BufferWipeout", silent_opts({ desc = "Close Buffer" }))
+--     -- vim.cmd("b#|bd#|quit")
+--   end
+-- end, silent_opts({ desc = "Quit All" }))
 
 -- keymap.set("n", "q", function()
 --   if vim.bo.filetype == "help" then
