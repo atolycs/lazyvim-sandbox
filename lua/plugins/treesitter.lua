@@ -9,7 +9,9 @@ return {
           mdx = "mdx",
         },
       })
-      vim.treesitter.language.register("markdown", "mdx")
+      if not require("atolycs.util").isWindows() then
+        vim.treesitter.language.register("markdown", "mdx")
+      end
     end,
   },
 }
