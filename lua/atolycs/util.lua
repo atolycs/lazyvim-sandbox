@@ -1,7 +1,12 @@
+-- load Library
+local logger = require("atolycs.lib.logs")
+
 local api = vim.api
 local fn = vim.fn
 
 local M = {}
+
+logger.info("Loading Atolycs plugins...")
 
 --@return boolean
 function M.isWindows()
@@ -40,5 +45,10 @@ function M.get_gir_root()
   return vim.fn.fnamemodify(git_path, ":h")
 end
 
+-- load commands
+logger.info("Loading custom user commands...")
+require("atolycs.commands")
+
+logger.info("Plugin Loaded !")
 -- return M
 return M
