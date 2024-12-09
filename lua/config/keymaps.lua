@@ -48,7 +48,7 @@ keymap.set("n", "q", function()
     local vscode = require("vscode")
     vscode.call("workbench.action.closeActiveEditor")
   else
-    require("atolycs.quit-util").is_last_quit()
+    -- require("atolycs.quit-util").is_last_quit()
   end
 end, default_opts({ desc = "Quit" }))
 
