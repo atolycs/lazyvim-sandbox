@@ -10,6 +10,7 @@ return {
         },
       })
       if not require("atolycs.util").isWindows() then
+        print("Loading Without Markdown")
         vim.treesitter.language.register("markdown", "mdx")
       end
     end,

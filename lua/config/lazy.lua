@@ -13,8 +13,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { "atolycs/util-closet.nvim" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.git" },
-    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    -- { import = "lazyvim.plugins.extras.lang.git" },
+    -- { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.vscode" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
